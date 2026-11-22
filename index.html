@@ -257,6 +257,10 @@ function fillAddr(la,ln){var f=$("ca"),fb=function(){f.value="موقعي على 
  f.value="جارٍ جلب العنوان...";
  var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},8000);
  fetch("https://nominatim.openstreetmap.org/reverse?format=jsonv2&accept-language=ar&zoom=18&lat="+la+"&lon="+ln,{signal:ctl?ctl.signal:undefined}).then(function(r){return r.json()}).then(function(d){clearTimeout(tm);var a=d.address||{},p=[],st=a.road||a.pedestrian||"",ar=a.suburb||a.neighbourhood||a.quarter||a.city_district||"",ct=a.city||a.town||a.village||"";if(ar)p.push("حي "+ar.replace(/^حي /,""));if(st)p.push(st);if(ct)p.push(ct);f.value=p.join("، ");if(!f.value)fb();toast("تم تعبئة العنوان من موقعك")}).catch(function(){clearTimeout(tm);fb()})}
+function diag(){var d=document.createElement("div");d.style.cssText="margin-top:10px;font-size:.85rem";d.innerHTML="جارٍ فحص التثبيت...";$("mp").appendChild(d);var r=[];function line(t,ok){r.push((ok?"✅ ":"❌ ")+t);d.innerHTML=r.join("<br>")}
+ line("الرابط آمن (HTTPS)",location.protocol=="https:");
+ function chk(u,n){return fetch(u,{cache:"no-store"}).then(function(x){line(n,x.ok)}).catch(function(){line(n,false)})}
+ chk("manifest.webmanifest","ملف manifest موجود").then(function(){return chk("icons/icon-512.png","ملف الأيقونة موجود")}).then(function(){return chk("sw.js","ملف sw.js موجود")}).then(function(){return navigator.serviceWorker?navigator.serviceWorker.getRegistration():null}).then(function(g){line("Service Worker مسجَّل",!!g)}).catch(function(){})}
 function sndLabel(){$("snd").textContent=SND?"🔊":"🔇"}sndLabel();
 $("snd").onclick=function(){SND=!SND;try{localStorage.setItem("fa_snd",SND?"1":"0")}catch(e){}sndLabel();SFX.tap()};
 document.addEventListener("click",function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();SFX.tap();var h=a.getAttribute("href").slice(1);try{location.hash=h}catch(x){}route(h)});
@@ -276,7 +280,7 @@ addEventListener("appinstalled",hideInst);
 $("ib2").onclick=function(){$("inst").click()};
 addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e});
 $("inst").onclick=function(){
- if(dp){dp.prompt();dp=null;return}
+ if(dp){dp.prompt();dp=null;return}setTimeout(diag,50);
  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
  $("mt").textContent="ثبّت التطبيق";$("mp").textContent=ios?"في سفاري: اضغط زر المشاركة، ثم اختر «إضافة إلى الشاشة الرئيسية».":"في كروم: افتح قائمة المتصفح (⋮) ثم اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».";
  $("m").classList.add("on")};
