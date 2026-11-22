@@ -96,6 +96,7 @@ nav a.on{font-weight:800}
   <div class="chips"><span>🛵 توصيل حسب المسافة</span><span>🔥 سعرات واضحة</span><span>📍 حدّد موقعك بضغطة</span></div>
   <span class="big" aria-hidden="true">🍌</span>
  </div>
+ <div class="info" id="ib" style="margin-bottom:14px;display:flex;align-items:center;gap:12px"><span style="font-size:2rem">📲</span><div style="flex:1"><h3 style="margin:0">ثبّت التطبيق على هاتفك</h3><small>يفتح بلمسة من الشاشة الرئيسية ويعمل بدون إنترنت</small></div><button class="btn" id="ib2" type="button">تثبيت</button></div>
  <div class="grid" id="feat"></div>
  <div class="grid">
   <div class="info"><h3>🛵 توصيل حسب المسافة</h3><p>التوصيل مجاني حتى 3 كم، وبعدها رسوم بسيطة تتغير حسب مسافتك.</p></div>
@@ -223,7 +224,7 @@ function openCo(){return openCo2()}function openCoOld(){var h="";Object.keys(car
 $("loc").onclick=function(){var s=$("ls");
  if(!navigator.geolocation){s.textContent="المتصفح لا يدعم تحديد الموقع. اكتب عنوانك.";return}
  s.textContent="جارٍ تحديد موقعك...";
- navigator.geolocation.getCurrentPosition(function(r){LAT=r.coords.latitude;LNG=r.coords.longitude;openCo2();LOC="https://www.google.com/maps?q="+r.coords.latitude.toFixed(6)+","+r.coords.longitude.toFixed(6);s.innerHTML='تم تحديد موقعك. <a target="_blank" rel="noopener" href="'+LOC+'">عرض على الخريطة</a>'},function(){LOC="";LAT=null;s.textContent="تعذّر تحديد الموقع. اسمح للمتصفح باستخدام موقعك أو اكتب عنوانك."},{enableHighAccuracy:true,timeout:15000})};
+ navigator.geolocation.getCurrentPosition(function(r){LAT=r.coords.latitude;LNG=r.coords.longitude;openCo2();LOC="https://www.google.com/maps?q="+r.coords.latitude.toFixed(6)+","+r.coords.longitude.toFixed(6);s.innerHTML='تم تحديد موقعك. <a target="_blank" rel="noopener" href="'+LOC+'">عرض على الخريطة</a>';fillAddr(r.coords.latitude,r.coords.longitude)},function(){LOC="";LAT=null;s.textContent="تعذّر تحديد الموقع. اسمح للمتصفح باستخدام موقعك أو اكتب عنوانك."},{enableHighAccuracy:true,timeout:15000})};
 $("cc").onclick=function(){$("co").classList.remove("on")};
 $("cs").onclick=function(){var n=$("cn").value.trim(),p=$("cp").value.trim(),a=$("ca").value.trim(),nt=$("cnote").value.trim();
  if(!n||(!a&&!LOC)||!/^(\+?966|0)?5\d{8}$/.test(p.replace(/[\s-]/g,""))){$("cerr").textContent="أدخل الاسم ورقم جوال سعودي صحيح وعنوانًا مكتوبًا أو موقعك على الخريطة.";return}
@@ -251,6 +252,11 @@ document.addEventListener("pointerdown",welcome);
 function toast(m){var t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("on")},1500)}
 function orders(){try{return JSON.parse(localStorage.getItem("fa_orders")||"[]")}catch(e){return[]}}
 function renderOrders(){var o=orders(),h="";if(!o.length)h="<p>لا توجد طلبات سابقة بعد. بعد أول طلب ستجده هنا لتعيده بضغطة واحدة.</p>";o.forEach(function(r,k){h+='<div class="info"><h3>طلب '+r.no+'</h3><small>'+r.date+'</small>';r.items.forEach(function(it){if(MENU[it[0]])h+='<div class="row"><span>'+MENU[it[0]].n+' × '+it[1]+'</span></div>'});h+='<div class="row tot"><span>الإجمالي</span><b>'+r.tot+' ر.س</b></div><button class="btn" type="button" data-re="'+k+'">أعد الطلب</button></div>'});$("ol").innerHTML=h}
+function fillAddr(la,ln){var f=$("ca"),fb=function(){f.value="موقعي على الخريطة ("+la.toFixed(5)+"، "+ln.toFixed(5)+")"};
+ if(!window.fetch){fb();return}
+ f.value="جارٍ جلب العنوان...";
+ var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},8000);
+ fetch("https://nominatim.openstreetmap.org/reverse?format=jsonv2&accept-language=ar&zoom=18&lat="+la+"&lon="+ln,{signal:ctl?ctl.signal:undefined}).then(function(r){return r.json()}).then(function(d){clearTimeout(tm);var a=d.address||{},p=[],st=a.road||a.pedestrian||"",ar=a.suburb||a.neighbourhood||a.quarter||a.city_district||"",ct=a.city||a.town||a.village||"";if(ar)p.push("حي "+ar.replace(/^حي /,""));if(st)p.push(st);if(ct)p.push(ct);f.value=p.join("، ");if(!f.value)fb();toast("تم تعبئة العنوان من موقعك")}).catch(function(){clearTimeout(tm);fb()})}
 function sndLabel(){$("snd").textContent=SND?"🔊":"🔇"}sndLabel();
 $("snd").onclick=function(){SND=!SND;try{localStorage.setItem("fa_snd",SND?"1":"0")}catch(e){}sndLabel();SFX.tap()};
 document.addEventListener("click",function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();SFX.tap();var h=a.getAttribute("href").slice(1);try{location.hash=h}catch(x){}route(h)});
@@ -263,6 +269,11 @@ function route(x){var h=typeof x=="string"?x:(location.hash||"#home").slice(1);i
 addEventListener("hashchange",route);route();draw();
 /* تثبيت التطبيق */
 var dp=null;
+function inApp(){return (window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true}
+function hideInst(){$("inst").style.display="none";$("ib").style.display="none"}
+if(inApp())hideInst();
+addEventListener("appinstalled",hideInst);
+$("ib2").onclick=function(){$("inst").click()};
 addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e});
 $("inst").onclick=function(){
  if(dp){dp.prompt();dp=null;return}
