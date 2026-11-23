@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>فوال ألين الطائف</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E8A317">
+<meta name="description" content="فوال ألين الطائف — معصوب وعريكة وأطباق يمنية شعبية في الرياض مع توصيل وطلب من الجوال">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="فوال ألين">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF6DC;--surf:#FFFFFF;--ink:#3A1E0C;--mute:#7A5A3E;--honey:#E8A317;--chili:#C8321E;--line:#EBD9A8;--on-honey:#3A1E0C;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1F1209;--surf:#2D1B0F;--ink:#FCEFCF;--mute:#C9A97E;--line:#4A3020;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1F1209;--surf:#2D1B0F;--ink:#FCEFCF;--mute:#C9A97E;--line:#4A3020;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,"Segoe UI",sans-serif;line-height:1.7;padding-bottom:160px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--honey);color:var(--on-honey);display:flex;align-items:center;gap:10px;padding:10px 16px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--honey);z-index:10}
+header b{font-size:1.2rem;font-weight:800;flex:1}
+header button{background:var(--on-honey);color:#FFF6DC;border:0;border-radius:20px;padding:6px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+main{max-width:760px;margin:0 auto;padding:18px 16px}
+section{display:none}section.on{display:block}
+h1{font-size:2.3rem;line-height:1.25;margin:.2em 0;font-weight:800}
+h2{font-size:1.5rem;margin:.2em 0 .6em;font-weight:800}
+p{margin:.4em 0;max-width:62ch}
+.hero{background:var(--honey);color:var(--on-honey);border-radius:28px 28px 120px 28px;padding:28px 22px 34px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero .big{font-size:4.5rem;position:absolute;inset-inline-start:14px;bottom:2px;opacity:.9}
+.btn{display:inline-block;background:var(--chili);color:#fff;text-decoration:none;border:0;border-radius:14px;padding:11px 20px;font:inherit;font-weight:600;cursor:pointer;margin:4px 0 4px 8px}
+.btn.alt{background:var(--on-honey);color:#FFF6DC}
+.grid{display:grid;gap:12px}
+.info{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.info h3{margin:0;font-size:1.05rem}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;padding-bottom:4px}
+.tabs button{flex:none;background:var(--surf);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:6px 16px;font:inherit;cursor:pointer}
+.tabs button.on{background:var(--honey);color:var(--on-honey);border-color:var(--honey);font-weight:600}
+.item{display:flex;align-items:center;gap:12px;background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.item .n{flex:1}.item .n b{display:block;font-size:1.05rem}.item .n small{color:var(--mute)}
+.price{font-weight:800;color:var(--chili);white-space:nowrap}
+.q{display:flex;align-items:center;gap:8px}
+.q button{width:34px;height:34px;border-radius:50%;border:0;background:var(--honey);color:var(--on-honey);font-size:1.2rem;font-weight:800;cursor:pointer}
+.q span{min-width:18px;text-align:center;font-weight:600}
+nav{position:fixed;inset:auto 0 0 0;z-index:6;background:var(--surf);border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom,0px)}
+nav a{flex:1;text-align:center;padding:8px 2px;color:var(--mute);text-decoration:none;font-size:.78rem}
+nav a i{display:block;font-style:normal;font-size:1.3rem}
+nav a.on{color:var(--chili);font-weight:600}
+.cart{background:var(--surf);border:2px solid var(--honey);border-radius:18px;padding:14px 16px;margin-top:16px}
+.cart .row{display:flex;justify-content:space-between;gap:8px;padding:4px 0}
+.tot{font-weight:800;font-size:1.15rem;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+input,textarea{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;margin:4px 0}
+.modal{position:fixed;inset:0;background:#0009;z-index:20;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}.modal>div{background:var(--surf);border-radius:20px;padding:20px;max-width:380px}
+:focus-visible{outline:3px solid var(--chili);outline-offset:2px}
+.hero{background:linear-gradient(135deg,#F4BA3A,#E8A317 55%,#D98A0B);box-shadow:0 12px 30px #e8a31755}
+.hero::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:#ffffff33;inset-inline-end:-70px;top:-70px}
+.hero .big{font-size:6rem;filter:drop-shadow(0 6px 8px #0003);z-index:1}
+.tag{display:inline-block;background:#3A1E0C;color:#FFF6DC;border-radius:20px;padding:2px 14px;font-size:.8rem;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;font-size:.82rem;font-weight:600}
+.chips span{background:#ffffff99;border-radius:20px;padding:3px 12px}
+.btn{transition:transform .15s;box-shadow:0 4px 12px #c8321e44}.btn:active{transform:scale(.95)}
+.btn.lg{font-size:1.1rem;padding:13px 28px;border-radius:16px}
+h2::after{content:"";display:block;width:48px;height:4px;border-radius:2px;background:var(--honey);margin-top:2px}
+#feat{grid-template-columns:1fr 1fr;margin-bottom:16px}
+#feat h2{grid-column:1/-1;margin:0}
+.fc{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:14px 10px;text-align:center}
+.fc .e{font-size:2.4rem}.fc b{display:block}
+.fc .btn{font-size:.85rem;padding:8px 12px;margin:6px 0 0}
+.info h3{color:var(--chili)}
+#bar{display:none;position:fixed;left:12px;right:12px;bottom:calc(66px + env(safe-area-inset-bottom,0px));z-index:7;background:var(--chili);color:#fff;border:0;border-radius:16px;padding:13px 18px;justify-content:space-between;align-items:center;font:inherit;font-weight:800;box-shadow:0 10px 26px #0005;cursor:pointer}
+nav a.on{font-weight:800}
+.row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.row small{color:var(--mute);font-weight:400}
+.row.tot{border-bottom:0;font-size:1.2rem}
+#snd{padding:6px 10px;font-size:1rem}
+.del{background:none;border:0;font-size:1.15rem;cursor:pointer;padding:2px 6px;border-radius:8px}.del:active{background:var(--line)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(132px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:20px;font-size:.9rem;z-index:30;opacity:0;pointer-events:none;transition:opacity .2s;white-space:nowrap}#toast.on{opacity:1}
+.srch{margin-bottom:10px}summary{font-weight:600;cursor:pointer}details.info{margin-top:10px}
+html.lock{overflow:hidden}body{overflow-x:hidden}
+.cine{position:relative;width:100vw;margin:-18px calc(50% - 50vw) 0;min-height:calc(100svh - 56px);background:radial-gradient(120% 80% at 70% 15%,#5A3410 0%,#2A1608 45%,#140A04 100%);color:#FFF1D0;overflow:hidden;display:flex;align-items:center}
+.stage{position:relative;width:100%;max-width:760px;margin:0 auto;padding:40px 22px 90px}
+.beam{position:absolute;inset:-30%;background:conic-gradient(from 210deg at 75% 18%,transparent 0 40%,#E8A31744 50%,transparent 62%);animation:spin 22s linear infinite;pointer-events:none;will-change:transform}
+.glow{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
+.g1{width:320px;height:320px;background:#E8A31766;top:-60px;inset-inline-start:-80px}
+.g2{width:260px;height:260px;background:#C8321E44;bottom:40px;inset-inline-end:-60px}
+.fl{position:absolute;pointer-events:none;font-size:5.5rem;filter:drop-shadow(0 18px 24px #0008)}
+.fl i{display:block;font-style:normal;animation:fl 7s ease-in-out infinite}
+.f1{top:10%;inset-inline-start:4%}.f2{bottom:14%;inset-inline-end:6%;font-size:7rem}.f3{top:38%;inset-inline-end:12%;font-size:2rem}
+.copy{position:relative;z-index:2}
+.cine h1{font-size:clamp(2.6rem,9vw,4.6rem);line-height:1.15;margin:.3em 0;text-shadow:0 6px 30px #0008}
+.cine h1 em{font-style:normal;color:var(--honey)}
+.cine .tag{background:#E8A31722;color:#F6C75A;border:1px solid #E8A31766}
+.cine p{color:#E9D3A8;font-size:1.1rem}
+.scrollcue{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#E8A317cc;font-size:.8rem;animation:cue 2s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes fl{50%{transform:translateY(-16px) rotate(4deg)}}@keyframes cue{50%{transform:translateY(6px);opacity:.5}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}.d1{transition-delay:.15s}.d2{transition-delay:.3s}.d3{transition-delay:.45s}
+.chap{padding:46px 4px 18px;text-align:center}.chap h2::after,.cta h2::after{margin:6px auto 0}
+.chap p{margin:.6em auto;font-size:1.05rem;color:var(--mute)}
+.steps{display:grid;gap:12px;margin:14px 0 20px}
+.st{display:flex;gap:14px;align-items:center;background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 12px 30px #3a1e0c14}
+.st b{flex:none;width:44px;height:44px;border-radius:50%;background:var(--honey);color:var(--on-honey);display:grid;place-items:center;font-size:1.2rem}
+.st small{color:var(--mute)}
+.cta{text-align:center;background:linear-gradient(135deg,#2A1608,#5A3410);color:#FFF1D0;border-radius:28px;padding:32px 20px;margin:20px 0;box-shadow:0 20px 50px #3a1e0c44}
+#intro{position:fixed;inset:0;z-index:50;background:radial-gradient(90% 70% at 50% 40%,#5A3410,#140A04);display:flex;align-items:center;justify-content:center;text-align:center;color:#FFF1D0;transition:transform 1.1s cubic-bezier(.7,0,.2,1),opacity .6s .5s}
+#intro.out{transform:translateY(-100%);opacity:0;pointer-events:none}
+#intro .ie{font-size:5.5rem;line-height:1.2;animation:pop 1.2s cubic-bezier(.2,.8,.2,1) both,glowp 3s 1.2s ease-in-out infinite}
+#intro h1{font-size:clamp(2rem,8vw,3.2rem);margin:.2em 0;animation:blurin 1.2s .5s both}
+#intro p{animation:blurin 1.2s .9s both;color:#E9D3A8;margin:0 0 18px}
+#intro .btn{animation:blurin 1s 1.5s both}
+#skip{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));inset-inline-start:16px;background:none;border:0;color:#E9D3A8;font:inherit;cursor:pointer}
+@keyframes pop{from{transform:scale(.3);opacity:0}}@keyframes blurin{from{opacity:0;transform:translateY(16px);filter:blur(8px)}}@keyframes glowp{50%{filter:drop-shadow(0 0 28px #E8A317)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"فوال ألين الطائف","telephone":"+966537161468","servesCuisine":"Yemeni","address":{"@type":"PostalAddress","streetAddress":"شارع التميم بن بيش، حي الحزم","addressLocality":"الرياض","addressCountry":"SA"},"geo":{"@type":"GeoCoordinates","latitude":24.526919,"longitude":46.637367}}</script>
+</head>
+<body>
+<div id="intro"><button id="skip" type="button">تخطّي</button><div><div class="ie">🍯</div><h1>فوال ألين الطائف</h1><p>مطعم شعبيات · الرياض</p><button class="btn lg" id="enter" type="button">ادخل المطعم</button></div></div>
+<header><b>🍯 فوال ألين الطائف</b><button id="snd" type="button" aria-label="الصوت"></button><button id="inst" type="button">ثبّت التطبيق</button></header>
+<main>
+
+<section id="home" class="on">
+ <div class="cine"><div class="beam"></div>
+  <div class="stage" id="stage">
+   <div class="glow g1" data-p=".35"></div><div class="glow g2" data-p=".2"></div>
+   <div class="fl f1" data-p="-.25"><i>🍌</i></div><div class="fl f2" data-p="-.4"><i>🍯</i></div><div class="fl f3" data-p="-.15"><i>✨</i></div>
+   <div class="copy" data-p=".1">
+    <span class="tag rv">مطعم شعبيات · الرياض</span>
+    <h1 class="rv d1">أكل شعبي يمني<br><em>بطعم البيت</em></h1>
+    <p class="rv d2">عسل وموز وقشطة وسمن، تُقدَّم ساخنة. توصيل مجاني حتى 3 كم.</p>
+    <div class="rv d3"><a class="btn lg" href="#menu">اطلب الآن</a><a class="btn alt lg" href="#about" style="background:#ffffff22;box-shadow:none">قصتنا</a></div>
+   </div>
+   <div class="scrollcue">⌄ اكتشف المزيد</div>
+  </div>
+ </div>
+ <div class="chap rv"><h2>من مطبخنا إلى بابك</h2><p>نحضّر المعصوب والعريكة والأطباق اليمنية بوصفات تقليدية، وتصلك ساخنة. كل صنف مكتوب بسعره وسعراته.</p></div>
+ <div class="grid" id="feat"></div>
+ <h2 class="rv" style="margin-top:30px">كيف تطلب؟</h2>
+ <div class="steps">
+  <div class="st rv"><b>1</b><div><h3 style="margin:0">اختر أصنافك</h3><small>تصفّح القائمة وأضف ما تشتهيه</small></div></div>
+  <div class="st rv d1"><b>2</b><div><h3 style="margin:0">حدّد موقعك</h3><small>بضغطة واحدة يُملأ عنوانك ويُحسب التوصيل</small></div></div>
+  <div class="st rv d2"><b>3</b><div><h3 style="margin:0">استلم طلبك ساخنًا</h3><small>كاش أو شبكة عند الاستلام</small></div></div>
+ </div>
+ <div class="info rv" id="ib" style="margin-bottom:14px;display:flex;align-items:center;gap:12px"><span style="font-size:2rem">📲</span><div style="flex:1"><h3 style="margin:0">ثبّت التطبيق على هاتفك</h3><small>يفتح بلمسة من الشاشة الرئيسية ويعمل بدون إنترنت</small></div><button class="btn" id="ib2" type="button">تثبيت</button></div>
+ <div class="cta rv"><h2 style="margin:0 0 12px">جاهز لأول لقمة؟</h2><a class="btn lg" href="#menu">اطلب الآن</a></div>
+</section>
+
+<section id="menu">
+ <h2>قائمة الطعام</h2>
+ <input id="srch" class="srch" type="search" placeholder="ابحث في القائمة..." aria-label="بحث">
+ <div class="tabs" id="tabs"></div>
+ <div class="grid" id="list"></div>
+ <div class="cart" id="cart"></div>
+</section>
+
+<section id="orders"><h2>طلباتي السابقة</h2><div class="grid" id="ol"></div></section>
+
+<section id="about">
+ <h2>من نحن</h2>
+ <p>فوال ألين الطائف مطعم شعبيات في حي الحزم بالرياض، متخصص في المعصوب والعريكة بوصفات تقليدية.</p>
+ <p>نقدّم كل صنف بسعره وسعراته الحرارية لتختار ما يناسبك، ونوصّل طلبك مجانًا.</p>
+</section>
+
+<section id="contact">
+ <h2>تواصل معنا</h2>
+ <div class="grid">
+  <div class="info"><h3>📞 الهاتف</h3><a class="btn" href="tel:+966537161468" dir="ltr">اتصل الآن 0537161468</a></div>
+  <div class="info"><h3>📍 العنوان</h3><p>الرياض، حي الحزم، شارع التميم بن بيش</p>
+   <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=24.526919,46.637367">افتح الخريطة</a></div>
+  <div class="info"><h3>💬 واتساب</h3><a class="btn" target="_blank" rel="noopener" href="https://wa.me/966537161468">راسلنا</a></div>
+ <div class="info"><h3>🔗 شارك التطبيق</h3><button class="btn" id="shr" type="button">شاركه مع أصدقائك</button></div>
+ </div>
+ <h2 style="margin-top:26px">أسئلة شائعة</h2>
+ <details class="info"><summary>كيف أطلب؟</summary><p>اختر أصنافك من القائمة، ثم اضغط «إتمام الطلب» وأدخل بياناتك وحدّد موقعك.</p></details>
+ <details class="info"><summary>كم رسوم التوصيل؟</summary><p>مجاني حتى 3 كم، و10 ر.س حتى 6 كم، و15 ر.س حتى 10 كم، و25 ر.س حتى 15 كم.</p></details>
+ <details class="info"><summary>كيف أدفع؟</summary><p>كاش أو شبكة عند الاستلام.</p></details>
+ <details class="info"><summary>هل بياناتي محفوظة؟</summary><p>تُحفظ على جهازك فقط لتسهيل طلبك القادم.</p></details>
+</section>
+</main>
+
+<div id="toast" role="status"></div>
+<button id="bar" type="button"></button>
+<nav id="nav">
+ <a href="#home"><i>🏠</i>الرئيسية</a>
+ <a href="#menu"><i>🍽️</i>القائمة</a>
+ <a href="#about"><i>ℹ️</i>من نحن</a>
+ <a href="#contact"><i>📞</i>تواصل</a>
+<a href="#orders"><i>🧾</i>طلباتي</a>
+</nav>
+
+<div class="modal" id="co"><div style="width:100%;max-height:90vh;overflow:auto">
+ <h3 style="margin-top:0">إتمام الطلب</h3>
+ <div id="cosum"></div>
+ <input id="cn" placeholder="الاسم" autocomplete="name">
+ <input id="cp" type="tel" inputmode="tel" placeholder="رقم الجوال" autocomplete="tel">
+ <input id="ca" placeholder="اكتب عنوانك (الحي والشارع)" autocomplete="street-address">
+ <button class="btn alt" id="loc" type="button">📍 حدّد موقعي على خرائط قوقل</button>
+ <p id="ls" style="margin:2px 0"></p>
+ <small>يمكنك استخدام الموقع أو كتابة العنوان أو الاثنين معًا.</small>
+ <textarea id="cnote" rows="2" placeholder="ملاحظات (اختياري)"></textarea>
+ <label><input type="radio" name="pay" value="كاش عند الاستلام" checked style="width:auto"> كاش عند الاستلام</label><br>
+ <label><input type="radio" name="pay" value="شبكة عند الاستلام" style="width:auto"> شبكة عند الاستلام</label>
+ <p id="cerr" style="color:var(--chili)"></p>
+ <button class="btn" id="cs" type="button">تأكيد الطلب</button><button class="btn alt" id="cc" type="button">إلغاء</button>
+</div></div>
+
+<div class="modal" id="m"><div>
+ <h3 id="mt" style="margin-top:0">ثبّت التطبيق</h3>
+ <p id="mp"></p>
+ <button class="btn" type="button" onclick="m.classList.remove('on')">حسنًا</button>
+</div></div>
+
+<script>
+var MENU=[
+{c:"معصوب",n:"معصوب عادي",p:10,k:200},
+{c:"معصوب",n:"معصوب عسل",p:10,k:240},
+{c:"معصوب",n:"معصوب ملكي",p:15,k:220},
+{c:"معصوب",n:"معصوب ديل قشطة",p:15,k:300},
+{c:"معصوب",n:"معصوب عرايسي",p:20,k:270},
+{c:"معصوب",n:"معصوب الفصول",p:22,k:250},
+{c:"عريكة",n:"عريكة",p:15,k:250},
+{c:"عريكة",n:"عريكة ملكي",p:17,k:200},
+{c:"عريكة",n:"عريكة عرايسي",p:20,k:270},
+{c:"عريكة",n:"عريكة الفصول",p:22,k:300},
+{c:"الفطور اليمني",n:"فول بالسمن",p:8,d:"فول ساخن مع السمن البلدي"},
+{c:"الفطور اليمني",n:"كبدة",p:18,d:"كبدة مطبوخة بالبهارات اليمنية"},
+{c:"الفطور اليمني",n:"شكشوكة",p:12,d:"بيض بالطماطم والفلفل"},
+{c:"الفطور اليمني",n:"فتة",p:14,d:"خبز مفتوت مع الموز والعسل والسمن"},
+{c:"الفطور اليمني",n:"خبز ملوج",p:3,d:"خبز يمني طازج"},
+{c:"الأطباق الرئيسية",n:"مندي لحم",p:45,d:"لحم مندي مع الأرز"},
+{c:"الأطباق الرئيسية",n:"مندي دجاج",p:30,d:"دجاج مندي مع الأرز"},
+{c:"الأطباق الرئيسية",n:"مظبي",p:50,d:"لحم مشوي على الحجر مع الأرز"},
+{c:"الأطباق الرئيسية",n:"فحسة",p:40,d:"لحم مطبوخ مع الحلبة في المدفأ"},
+{c:"الأطباق الرئيسية",n:"سلتة",p:25,d:"مرق يمني بالحلبة والخضار"},
+{c:"الأطباق الرئيسية",n:"عصيد",p:15,d:"عصيدة يمنية بالسمن والعسل"},
+{c:"المشروبات",n:"شاهي عدني",p:5,d:"شاي بالحليب المهيل"},
+{c:"المشروبات",n:"شاهي حليب",p:6,d:"شاي بالحليب"},
+{c:"المشروبات",n:"قهوة قشر",p:8,d:"قهوة القشر بالزنجبيل"},
+{c:"المشروبات",n:"ماء",p:1,d:"عبوة ماء"}
+];
+var SND=true,AC=null;try{SND=localStorage.getItem("fa_snd")!="0"}catch(e){}
+function tone(f,d,t,v){if(!SND)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state=="suspended")AC.resume();var o=AC.createOscillator(),g=AC.createGain(),s=AC.currentTime+(t||0);o.type="sine";o.frequency.setValueAtTime(f,s);g.gain.setValueAtTime(0.0001,s);g.gain.exponentialRampToValueAtTime(v||0.12,s+0.02);g.gain.exponentialRampToValueAtTime(0.0001,s+d);o.connect(g);g.connect(AC.destination);o.start(s);o.stop(s+d+0.05)}catch(e){}}
+var SFX={add:function(){tone(660,.12);tone(880,.16,.07)},rem:function(){tone(440,.13)},tap:function(){tone(520,.07,0,.07)},ok:function(){[523,659,784,1047].forEach(function(f,i){tone(f,.4,i*.13,.12)})}};
+/* إعدادات التوصيل: ضع إحداثيات المطعم في REST ثم عدّل الشرائح [أقصى مسافة بالكم، الرسوم] */
+var REST={lat:24.526919,lng:46.637367},TIERS=[[3,0],[6,10],[10,15],[15,25]],LAT=null,LNG=null;
+function km(a,b,c,d){var R=6371,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h))*1.3}
+function delivery(){if(!REST)return{k:null,f:0,s:"مجاني"};if(LAT===null)return{k:null,f:0,s:"يُحدَّد حسب المسافة"};var k=km(REST.lat,REST.lng,LAT,LNG);for(var i=0;i<TIERS.length;i++)if(k<=TIERS[i][0])return{k:k,f:TIERS[i][1],s:TIERS[i][1]?TIERS[i][1]+" ر.س":"مجاني"};return{k:k,f:null,s:"خارج النطاق"}}
+var LOC="",FEE=0,TOT=0,cart={},cat="الكل",$=function(i){return document.getElementById(i)};
+try{var s=localStorage.getItem("fa_cart");if(s)cart=JSON.parse(s)||{}}catch(e){}
+function save(){try{localStorage.setItem("fa_cart",JSON.stringify(cart))}catch(e){}}
+function tabs(){var h="";["الكل","معصوب","عريكة","الفطور اليمني","الأطباق الرئيسية","المشروبات"].forEach(function(t){h+='<button type="button" class="'+(t==cat?"on":"")+'" data-t="'+t+'">'+t+'</button>'});$("tabs").innerHTML=h}
+function list(){var h="";MENU.forEach(function(x,i){if(cat!="الكل"&&x.c!=cat)return;var sq=($("srch")&&$("srch").value||"").trim();if(sq&&x.n.indexOf(sq)<0&&(x.d||"").indexOf(sq)<0)return;
+ h+='<div class="item"><div class="n"><b>'+x.n+'</b><small>'+(x.k?x.k+' سعرة حرارية':x.d)+'</small></div><span class="price">'+x.p+' ر.س</span><div class="q"><button type="button" data-d="-1" data-i="'+i+'" aria-label="إنقاص">−</button><span>'+(cart[i]||0)+'</span><button type="button" data-d="1" data-i="'+i+'" aria-label="إضافة">+</button></div></div>'});
+ if(!h)h="<p>لا توجد أصناف مطابقة.</p>";$("list").innerHTML=h}
+function renderCart(){var ids=Object.keys(cart).filter(function(i){return cart[i]>0}),t=0,h="<h3 style='margin-top:0'>سلة الطلب</h3>";
+ if(!ids.length){$("bar").style.display="none";$("cart").innerHTML=h+"<p>السلة فارغة. اختر أصنافك من القائمة.</p>";return}
+ var msg="طلب جديد من موقع فوال ألين الطائف:%0A";
+ ids.forEach(function(i){var x=MENU[i],l=x.p*cart[i];t+=l;h+='<div class="row"><span>'+x.n+' × '+cart[i]+'</span><span>'+l+' ر.س</span><button type="button" class="del" data-i="'+i+'" data-d="-999" aria-label="حذف الصنف">🗑️</button></div>';msg+=encodeURIComponent("- "+x.n+" × "+cart[i])+"%0A"});
+ msg+=encodeURIComponent("الإجمالي: "+t+" ر.س")+"%0A";
+ h+='<div class="row tot"><span>الإجمالي</span><span>'+t+' ر.س</span></div><button class="btn alt" id="clr" type="button">إفراغ السلة</button><button class="btn" id="go" type="button">إتمام الطلب</button>';
+ TOT=t;var nn=0;ids.forEach(function(i){nn+=cart[i]});$("bar").innerHTML='<span>🛒 '+nn+' من الأصناف</span><span>'+t+' ر.س · إتمام الطلب</span>';$("bar").style.display="flex";$("cart").innerHTML=h;$("clr").onclick=function(){cart={};save();SFX.rem();draw()};$("go").onclick=openCo}
+function openCo(){return openCo2()}function openCoOld(){var h="";Object.keys(cart).forEach(function(i){if(cart[i]>0)h+='<div class="row"><span>'+MENU[i].n+' × '+cart[i]+'</span><span>'+MENU[i].p*cart[i]+' ر.س</span></div>'});$("cosum").innerHTML=h+'<div class="row tot"><span>الإجمالي (التوصيل مجاني)</span><span>'+TOT+' ر.س</span></div>';$("cerr").textContent="";$("co").classList.add("on")}
+$("loc").onclick=function(){var s=$("ls");
+ if(!navigator.geolocation){s.textContent="المتصفح لا يدعم تحديد الموقع. اكتب عنوانك.";return}
+ s.textContent="جارٍ تحديد موقعك...";
+ navigator.geolocation.getCurrentPosition(function(r){LAT=r.coords.latitude;LNG=r.coords.longitude;openCo2();LOC="https://www.google.com/maps?q="+r.coords.latitude.toFixed(6)+","+r.coords.longitude.toFixed(6);s.innerHTML='تم تحديد موقعك. <a target="_blank" rel="noopener" href="'+LOC+'">عرض على الخريطة</a>';fillAddr(r.coords.latitude,r.coords.longitude)},function(){LOC="";LAT=null;s.textContent="تعذّر تحديد الموقع. اسمح للمتصفح باستخدام موقعك أو اكتب عنوانك."},{enableHighAccuracy:true,timeout:15000})};
+$("cc").onclick=function(){$("co").classList.remove("on")};
+$("cs").onclick=function(){var n=$("cn").value.trim(),p=$("cp").value.trim(),a=$("ca").value.trim(),nt=$("cnote").value.trim();
+ if(!n||(!a&&!LOC)||!/^(\+?966|0)?5\d{8}$/.test(p.replace(/[\s-]/g,""))){$("cerr").textContent="أدخل الاسم ورقم جوال سعودي صحيح وعنوانًا مكتوبًا أو موقعك على الخريطة.";return}
+ var no="FA-"+String(Date.now()).slice(-6),pay=document.querySelector('input[name=pay]:checked').value,t="طلب رقم "+no+"\nالاسم: "+n+"\nالجوال: "+p+"\nالعنوان: "+(a||"غير مكتوب")+"\n"+(LOC?"الموقع على الخريطة: "+LOC+"\n":"");
+ Object.keys(cart).forEach(function(i){if(cart[i]>0)t+="- "+MENU[i].n+" × "+cart[i]+" = "+MENU[i].p*cart[i]+" ر.س\n"});
+ t+="الإجمالي: "+TOT+" ر.س\nالدفع: "+pay+(nt?"\nملاحظات: "+nt:"");
+ try{localStorage.setItem("fa_cust",JSON.stringify({n:n,p:p,a:a}))}catch(e){}
+ var dl=delivery();if(dl.f===null){$("cerr").textContent="موقعك خارج نطاق التوصيل. تواصل معنا على 0537161468.";return}
+ t+="\nرسوم التوصيل: "+dl.s+(dl.k!==null?" (المسافة التقريبية "+dl.k.toFixed(1)+" كم)":"");
+ var url="https://wa.me/966537161468?text="+encodeURIComponent(t);
+ try{var ol=orders();ol.unshift({no:no,date:new Date().toLocaleDateString("ar-SA-u-ca-gregory"),items:Object.keys(cart).filter(function(i){return cart[i]>0}).map(function(i){return[+i,cart[i]]}),tot:TOT});localStorage.setItem("fa_orders",JSON.stringify(ol.slice(0,5)))}catch(e){}
+SFX.ok();window.open(url,"_blank");cart={};LOC="";LAT=null;$("ls").textContent="";save();draw();$("co").classList.remove("on");
+ $("mt").textContent="تم تجهيز طلبك رقم "+no;$("mp").innerHTML='يصل طلبك للمطعم عند الضغط على «إرسال» في واتساب. إن لم يفتح واتساب اضغط الزر:<br><a class="btn" target="_blank" rel="noopener" href="'+url+'">أرسل الطلب</a>';$("m").classList.add("on")};
+function feat(){var F=$("feat");if(!F.dataset.b){var h='<h2 class="rv" style="grid-column:1/-1;margin:0">أصناف مقترحة</h2>';[2,1,15,16].forEach(function(i,k){var x=MENU[i];h+='<div class="fc rv" style="transition-delay:'+(k*.1)+'s"><div class="e">'+(x.c=="معصوب"?"🍯":"🍖")+'</div><b>'+x.n+'</b><span class="price">'+x.p+' ر.س</span><br><button class="btn" type="button" data-d="1" data-i="'+i+'"></button></div>'});F.innerHTML=h;F.dataset.b=1;observe(F)}F.querySelectorAll("button").forEach(function(b){var q=cart[b.dataset.i];b.textContent="أضف للسلة"+(q?" ("+q+")":"")})}
+function draw(){tabs();list();feat();renderCart()}
+function openCo2(){var h="",t=0;Object.keys(cart).forEach(function(i){var q=cart[i];if(q>0){var x=MENU[i],l=x.p*q;t+=l;h+='<div class="row"><span>'+x.n+'<br><small>الكمية: '+q+' · سعر الواحد: '+x.p+' ر.س</small><div class="q" style="margin-top:6px"><button type="button" data-d="-1" data-i="'+i+'" aria-label="إنقاص">−</button><span>'+q+'</span><button type="button" data-d="1" data-i="'+i+'" aria-label="زيادة">+</button><button type="button" class="del" data-d="-999" data-i="'+i+'" aria-label="حذف">🗑️</button></div></span><b>'+l+' ر.س</b></div>'}});var d=delivery();FEE=d.f;TOT=t+(d.f||0);$("cosum").innerHTML=h+'<div class="row"><span>التوصيل'+(d.k!==null?'<br><small>المسافة التقريبية: '+d.k.toFixed(1)+' كم</small>':'')+'</span><b>'+d.s+'</b></div><div class="row tot"><span>الإجمالي</span><b>'+TOT+' ر.س</b></div>';$("cerr").textContent="";try{var c=JSON.parse(localStorage.getItem("fa_cust")||"null");if(c){if(!$("cn").value)$("cn").value=c.n||"";if(!$("cp").value)$("cp").value=c.p||"";if(!$("ca").value)$("ca").value=c.a||""}}catch(e){}
+if(!$("co").classList.contains("on"))SFX.tap();$("co").classList.add("on")}
+function refreshCo(){var any=Object.keys(cart).some(function(i){return cart[i]>0});if(!any){$("co").classList.remove("on");return}openCo2()}
+$("bar").onclick=function(){openCo()};
+$("srch").oninput=list;
+$("shr").onclick=function(){var d={title:"فوال ألين الطائف",text:"اطلب من فوال ألين الطائف",url:location.href.split("#")[0]};if(navigator.share)navigator.share(d).catch(function(){});else{try{navigator.clipboard.writeText(d.url);toast("تم نسخ الرابط")}catch(e){toast("انسخ الرابط من المتصفح")}}};
+var WELCOMED=false;
+function welcome(){if(!SND||WELCOMED||!window.speechSynthesis)return;WELCOMED=true;try{var u=new SpeechSynthesisUtterance("أهلاً وسهلاً بكم في فوال ألين الطائف. تفضلوا باختيار طلبكم، ونحن في خدمتكم.");u.lang="ar-SA";var vs=speechSynthesis.getVoices(),v=null;for(var i=0;i<vs.length;i++)if(/^ar/i.test(vs[i].lang)){v=vs[i];break}if(v)u.voice=v;u.rate=.92;u.pitch=1;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+document.addEventListener("pointerdown",welcome);
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("on")},1500)}
+function orders(){try{return JSON.parse(localStorage.getItem("fa_orders")||"[]")}catch(e){return[]}}
+function renderOrders(){var o=orders(),h="";if(!o.length)h="<p>لا توجد طلبات سابقة بعد. بعد أول طلب ستجده هنا لتعيده بضغطة واحدة.</p>";o.forEach(function(r,k){h+='<div class="info"><h3>طلب '+r.no+'</h3><small>'+r.date+'</small>';r.items.forEach(function(it){if(MENU[it[0]])h+='<div class="row"><span>'+MENU[it[0]].n+' × '+it[1]+'</span></div>'});h+='<div class="row tot"><span>الإجمالي</span><b>'+r.tot+' ر.س</b></div><button class="btn" type="button" data-re="'+k+'">أعد الطلب</button></div>'});$("ol").innerHTML=h}
+function fillAddr(la,ln){var f=$("ca"),fb=function(){f.value="موقعي على الخريطة ("+la.toFixed(5)+"، "+ln.toFixed(5)+")"};
+ if(!window.fetch){fb();return}
+ f.value="جارٍ جلب العنوان...";
+ var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},8000);
+ fetch("https://nominatim.openstreetmap.org/reverse?format=jsonv2&accept-language=ar&zoom=18&lat="+la+"&lon="+ln,{signal:ctl?ctl.signal:undefined}).then(function(r){return r.json()}).then(function(d){clearTimeout(tm);var a=d.address||{},p=[],st=a.road||a.pedestrian||"",ar=a.suburb||a.neighbourhood||a.quarter||a.city_district||"",ct=a.city||a.town||a.village||"";if(ar)p.push("حي "+ar.replace(/^حي /,""));if(st)p.push(st);if(ct)p.push(ct);f.value=p.join("، ");if(!f.value)fb();toast("تم تعبئة العنوان من موقعك")}).catch(function(){clearTimeout(tm);fb()})}
+var IO=window.IntersectionObserver?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");IO.unobserve(e.target)}})},{threshold:.12}):null;
+function observe(r){(r||document).querySelectorAll(".rv:not(.in)").forEach(function(e){if(IO)IO.observe(e);else e.classList.add("in")})}
+var RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,PX=[].slice.call(document.querySelectorAll("[data-p]")),tick=false;
+function par(){tick=false;var y=scrollY,h=innerHeight;if($("home").classList.contains("on")&&y<h*1.5){PX.forEach(function(e){e.style.transform="translate3d(0,"+(y*e.dataset.p).toFixed(1)+"px,0)"});$("stage").style.opacity=Math.max(0,1-y/(h*.85)).toFixed(2)}}
+if(!RM)addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(par)}},{passive:true});
+function startIntro(){var I=$("intro"),h=(location.hash||"#home").slice(1),seen=false,done=false;try{seen=sessionStorage.getItem("fa_intro")}catch(e){}
+ if(seen||h!="home"){I.style.display="none";observe();return}
+ document.documentElement.classList.add("lock");
+ function go(){if(done)return;done=true;try{sessionStorage.setItem("fa_intro","1")}catch(e){}I.classList.add("out");document.documentElement.classList.remove("lock");setTimeout(observe,350);setTimeout(function(){I.style.display="none"},1500);SFX.ok()}
+ $("enter").onclick=go;$("skip").onclick=go;setTimeout(go,8000)}
+function sndLabel(){$("snd").textContent=SND?"🔊":"🔇"}sndLabel();
+$("snd").onclick=function(){SND=!SND;try{localStorage.setItem("fa_snd",SND?"1":"0")}catch(e){}sndLabel();SFX.tap()};
+document.addEventListener("click",function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();SFX.tap();var h=a.getAttribute("href").slice(1);try{location.hash=h}catch(x){}route(h)});
+document.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+ if(b.dataset.re){var r=orders()[+b.dataset.re];if(r){cart={};r.items.forEach(function(it){cart[it[0]]=it[1]});save();draw();SFX.add();toast("أُضيف الطلب إلى السلة");try{location.hash="menu"}catch(x){}route("menu")}}else if(b.dataset.t){SFX.tap();cat=b.dataset.t;draw()}
+ else if(b.dataset.i){var i=b.dataset.i;if(+b.dataset.d>0){SFX.add();toast("تمت الإضافة إلى السلة ✓")}else SFX.rem();cart[i]=Math.max(0,(cart[i]||0)+ +b.dataset.d);save();var ad=$("addr")&&$("addr").value;draw();if(ad&&$("addr"))$("addr").value=ad;if($("co").classList.contains("on"))refreshCo()}});
+function route(x){var h=typeof x=="string"?x:(location.hash||"#home").slice(1);if(!$(h))h="home";
+ ["home","menu","about","contact","orders"].forEach(function(id){$(id).classList.toggle("on",id==h)});
+ document.querySelectorAll("#nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")=="#"+h)});if(h=="orders")renderOrders();scrollTo(0,0)}
+addEventListener("hashchange",route);route();draw();startIntro();
+/* تثبيت التطبيق */
+var dp=null;
+function inApp(){return (window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true}
+function hideInst(){$("inst").style.display="none";$("ib").style.display="none"}
+if(inApp())hideInst();
+addEventListener("appinstalled",hideInst);
+$("ib2").onclick=function(){$("inst").click()};
+addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e});
+$("inst").onclick=function(){
+ if(dp){dp.prompt();dp=null;return}
+ var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+ $("mt").textContent="ثبّت التطبيق";$("mp").textContent=ios?"في سفاري: اضغط زر المشاركة، ثم اختر «إضافة إلى الشاشة الرئيسية».":"في كروم: افتح قائمة المتصفح (⋮) ثم اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».";
+ $("m").classList.add("on")};
+try{var mf={name:"فوال ألين الطائف",short_name:"فوال ألين",lang:"ar",dir:"rtl",display:"standalone",background_color:"#FFF6DC",theme_color:"#E8A317",start_url:location.href.split("#")[0],icons:[{src:"data:image/svg+xml,"+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='#E8A317'/><text x='50' y='68' font-size='58' text-anchor='middle'>🍯</text></svg>"),sizes:"512x512",type:"image/svg+xml"}]};
+ var l=document.createElement("link");l.rel="manifest";l.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:"application/json"}));document.head.appendChild(l)}catch(e){}
+</script>
+</body>
+</html>
